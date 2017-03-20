@@ -1,0 +1,271 @@
+/* <system section="theme" selected="6653812171397613909"> */
+
+@import "http://hatenablog.com/theme/6653812171397613909.css";
+
+/* </system> */
+
+
+/* <system section="background" selected="default"> */
+
+
+/* default */
+
+
+/* </system> */
+
+large {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+strong {
+    background: linear-gradient(transparent 100%, #FF847C 100%);
+    background: -moz-linear-gradient(transparent 100%, #FF847C 100%);
+    background: -webkit-linear-gradient(transparent 100%, #FF847C 100%);
+    background: -ms-linear-gradient(transparent 100%, #FF847C 100%);
+    background: -o-linear-gradient(transparent 100%, #FF847C 100%);
+    font-weight: bold;
+}
+
+.entry-content {
+    font-size: 15px;
+}
+
+.entry-content h3:before {
+    content: "\f029";
+    font-family: "blogicon";
+    position: relative;
+    padding-right: 10px;
+    color: #1D3557;
+}
+
+.entry-content h3 {
+    font-size: 130%;
+    background: none;
+    color: #1D3557;
+}
+
+.entry-content h4 {
+    font-size: 120%;
+    border-left: none;
+    padding: 0 0;
+    color: #000000;
+}
+
+
+/*目次のデザイン*/
+
+.table-of-contents {
+    background: none;
+}
+
+.table-of-contents:before {
+    color: #1D3557;
+}
+
+
+/*share-botton*/
+
+.share-buttons {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.share-buttons .inner a {
+    position: relative;
+    display: inline-block;
+    width: 17%;
+    height: 35px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    text-vertical-align: middle;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2px;
+}
+
+.share-buttons .inner .share-text {
+    font-size: 8px;
+}
+
+.share-count-box {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.share-buttons .inner .hatena-bookmark-button {
+    background: #008fde;
+}
+
+.share-buttons .inner .facebook-button {
+    background: #305097;
+}
+
+.share-buttons .inner .twitter-button {
+    background: #55acee;
+}
+
+.share-buttons .inner .googleplus-button {
+    background: #db4a39;
+}
+
+.share-buttons .inner .pocket-button {
+    background: #ee4256;
+}
+
+[class*=blogicon-].lg {
+    line-height: inherit;
+    vertical-align: middle;
+}
+
+.fa {
+    vertical-align: middle;
+}
+
+
+/* 囲み枠 */
+
+.design-box {
+    border: 4px solid #E63946;
+    border-radius: 10px;
+    margin: 2em 0;
+    padding: 2em 0;
+    position: relative;
+    font-weight: bold;
+}
+
+.design-title {
+    color: #E63946;
+    position: absolute;
+    background-color: #fff;
+    top: -25px;
+    left: 20px;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.design-box ul {
+    margin: 0;
+}
+
+#main {
+    padding: 0 0;
+}
+
+
+/* 記事一覧の並列表示 */
+
+.archive-entries {
+    text-align: center;
+}
+
+.page-archive .archive-entry-header .date {
+    font-size: 80%;
+    position: absolute;
+    top: -30px;
+}
+
+.page-archive .archive-entry-header .entry-title {
+    font-size: calc(85% + 0.25vw);
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: left;
+}
+
+.page-archive .archive-entries .archive-entry {
+    position: relative;
+    display: inline-block;
+    margin-top: 24px;
+    margin-bottom: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0 5px;
+    vertical-align: top;
+    text-align: left;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+@media (min-width: 320px) {
+    .page-archive .archive-entries .archive-entry {
+        width: 45%;
+    }
+}
+
+.archive-entry .archive-entries .archive-entry-body {
+    margin-bottom: 10px;
+}
+
+.page-archive .archive-entries .entry-description {
+    margin: 0;
+    line-height: 1.5em;
+    font-size: 80%;
+}
+
+.page-archive .archive-entry-header {
+    margin-bottom: 10px;
+}
+
+.page-archive .archive-entry .categories {
+    position: absolute;
+    top: calc(100% - 1rem);
+    margin: 0;
+}
+
+.archive-entry-body .social-buttons {
+    display: none;
+}
+
+section.archive-entry {
+    border-top: 8px solid #1D3557;
+}
+
+section.archive-entry.autopagerize_page_element:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+section.archive-entry.autopagerize_page_element:hover:before {
+    width: 100%;
+}
+
+section.archive-entry.autopagerize_page_element:before {
+    content: ' ';
+    height: 8px;
+    width: 0;
+    background-color: #E63946;
+    position: absolute;
+    top: -8px;
+    left: 0;
+    transition: 500ms;
+}
+
+.page-archive #main {
+    padding: 0 0;
+}
+
+@media (max-width: 600px) {
+    #main {
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 420px) and (min-width: 320px) {
+    .page-archive .entry-thumb {
+        margin: 0 auto;
+        float: none;
+    }
+    .archive-entry .archive-entry-body {
+        clear: both;
+        display: none;
+    }
+    .page-archive .archive-entry .categories {
+        top: 100%;
+    }
+}

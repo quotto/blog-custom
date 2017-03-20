@@ -1,0 +1,80 @@
+.archive-entries {
+    text-align: center;
+}
+
+.page-archive .archive-entry-header .date {
+    font-size: 80%;
+    position: absolute;
+    top: -30px;
+}
+
+.page-archive .archive-entry-header .entry-title {
+    font-size: calc(80% + 0.25vw);
+    height: 100px;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.page-archive .archive-entry {
+    position: relative;
+    display: inline-block;
+    margin: 24px 0;
+    padding: 0 5px;
+    vertical-align: top;
+    text-align: left;
+    background-color: #fff;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .page-archive .archive-entry {
+        width: 45%;
+    }
+}
+
+.page-archive .archive-entries .entry-description {
+    margin: 0;
+    line-height: 1.5em;
+    font-size: 80%;
+}
+
+.page-archive .archive-entry-header {
+    margin-bottom: 10px;
+}
+
+.page-archive .categories {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+.archive-entry-body .social-buttons,
+{
+    display: none;
+}
+
+section.archive-entry {
+    border-top: 8px solid #1D3557;
+}
+
+section.archive-entry.autopagerize_page_element:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+section.archive-entry.autopagerize_page_element:hover:before {
+    width: 100%;
+}
+
+section.archive-entry.autopagerize_page_element:before {
+    content: ' ';
+    height: 8px;
+    width: 0;
+    background-color: #E63946;
+    position: absolute;
+    top: -8px;
+    left: 0;
+    transition: 500ms;
+}
