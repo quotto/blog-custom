@@ -187,29 +187,10 @@ strong {
     vertical-align: top;
     text-align: left;
     background-color: #fff;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-top: 8px solid #1D3557;
-}
-
-.page-archive .archive-entries .archive-entry:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-    transition: 500ms;
-}
-
-.page-archive .archive-entries .archive-entry:before {
-    content: ' ';
-    height: 8px;
-    width: 0;
-    background-color: #E63946;
-    position: absolute;
-    top: -8px;
-    left: 0;
-    transition: 500ms;
-}
-
-.page-archive .archive-entries .archive-entry:hover:before {
-    width: 100%;
+    width: 45%;
 }
 
 .page-archive .archive-entries .archive-entry .archive-entries .archive-entry-body {
@@ -236,30 +217,106 @@ strong {
     display: none;
 }
 
-@media (min-width: 320px) {
-    .page-archive .archive-entries .archive-entry {
-        width: 45%;
+@media (min-width: 600px) {
+    .page-archive .archive-entries .archive-entry:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+        -webkit-transition: 500ms;
+        transition: 500ms;
+    }
+    .page-archive .archive-entries .archive-entry:before {
+        content: ' ';
+        height: 8px;
+        width: 0;
+        background-color: #E63946;
+        position: absolute;
+        top: -8px;
+        left: 0;
+        -webkit-transition: 500ms;
+        transition: 500ms;
+    }
+    .page-archive .archive-entries .archive-entry:hover:before {
+        width: 100%;
     }
 }
 
 @media (max-width: 600px) {
     #main {
         padding: 0 10px;
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
-}
-
-@media (max-width: 420px) and (min-width: 320px) {
+    .page-archive .archive-entries .archive-entry {
+        display: -webkit-inline-box;
+        display: -moz-inline-box;
+        display: -ms-inline-box;
+        display: -webkit-inline-flex;
+        display: inline-flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -moz-box-direction: normal;
+        -moz-box-orient: vertical;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        padding: 0 0;
+        -webkit-box-shadow: 0px 4px 6px 0px #d6d6d6;
+        box-shadow: 0px 4px 6px 0px #d6d6d6;
+        border: none;
+    }
+    .page-archive .archive-entries .archive-entry-header {
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-direction: inherit;
+        -moz-box-direction: inherit;
+        -webkit-flex-direction: inherit;
+        flex-direction: inherit;
+    }
+    .page-archive .archive-entry-header .date {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+        position: static;
+        padding: 4px 0;
+    }
+    .page-archive .archive-entry-header .entry-title {
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+        font-size: calc(80% + 0.15vw);
+        height: calc((3rem * 0.8 + 0.15vw) * 1.5);
+        overflow: hidden;
+    }
     .page-archive .entry-thumb {
-        margin: 0 auto;
+        margin: 0;
         float: none;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
     }
     .page-archive .archive-entries .archive-entry .archive-entry-body {
         clear: both;
         display: none;
     }
     .page-archive .archive-entries .archive-entry .categories {
-        top: 100%;
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+        position: static;
+        font-size: calc(85% + 0.25vw);
     }
 }
 
@@ -268,4 +325,8 @@ strong {
 
 .page-archive #main {
     padding: 0 0;
+}
+
+.archive-heading {
+    text-align: center;
 }
