@@ -188,15 +188,31 @@ strong {
     text-align: left;
     background-color: #fff;
     box-sizing: border-box;
+    border-top: 8px solid #1D3557;
 }
 
-@media (min-width: 320px) {
-    .page-archive .archive-entries .archive-entry {
-        width: 45%;
-    }
+.page-archive .archive-entries .archive-entry:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: 500ms;
 }
 
-.archive-entry .archive-entries .archive-entry-body {
+.page-archive .archive-entries .archive-entry:before {
+    content: ' ';
+    height: 8px;
+    width: 0;
+    background-color: #E63946;
+    position: absolute;
+    top: -8px;
+    left: 0;
+    transition: 500ms;
+}
+
+.page-archive .archive-entries .archive-entry:hover:before {
+    width: 100%;
+}
+
+.page-archive .archive-entries .archive-entry .archive-entries .archive-entry-body {
     margin-bottom: 10px;
 }
 
@@ -220,33 +236,10 @@ strong {
     display: none;
 }
 
-section.archive-entry {
-    border-top: 8px solid #1D3557;
-}
-
-section.archive-entry.autopagerize_page_element:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-    transition: 500ms;
-}
-
-section.archive-entry.autopagerize_page_element:hover:before {
-    width: 100%;
-}
-
-section.archive-entry.autopagerize_page_element:before {
-    content: ' ';
-    height: 8px;
-    width: 0;
-    background-color: #E63946;
-    position: absolute;
-    top: -8px;
-    left: 0;
-    transition: 500ms;
-}
-
-.page-archive #main {
-    padding: 0 0;
+@media (min-width: 320px) {
+    .page-archive .archive-entries .archive-entry {
+        width: 45%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -261,11 +254,18 @@ section.archive-entry.autopagerize_page_element:before {
         margin: 0 auto;
         float: none;
     }
-    .archive-entry .archive-entry-body {
+    .page-archive .archive-entries .archive-entry .archive-entry-body {
         clear: both;
         display: none;
     }
-    .page-archive .archive-entry .categories {
+    .page-archive .archive-entries .archive-entry .categories {
         top: 100%;
     }
+}
+
+
+/* これはテーマに合わせて設定 */
+
+.page-archive #main {
+    padding: 0 0;
 }
