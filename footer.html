@@ -1,62 +1,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
-    $('#main-inner').ready(function() {
-        "use strict";
-        var pc_width = 600;
-        var device = window.screen.width < pc_width ? 'sp' : 'pc';
-        device = (device == 'pc' && $(window).width() > pc_width) ? 'pc' : 'sp';
-        // ここに1回あたりの表示記事数を設定
-        var view_sec_num = 7;
-        var sections = $('#main-inner > div.archive-entries > section');
-        if ((sections.length > view_sec_num) && device == 'sp') {
-            var page_index = 0;
-            var $entries_archive = null;
-            var archive_num = 0;
-            $entries_archive = $('<div id="entries-archive-' + archive_num + '"></div>');
-            $entries_archive.insertBefore(sections[0]);
-            for (var i = 0; i < view_sec_num; i++) {
-                $(sections[i]).appendTo($entries_archive);
-                page_index += 1;
-            }
-            archive_num += 1;
-            for (var i = view_sec_num; i < sections.length; i++) {
-                if (page_index == view_sec_num) {
-                    var $read_more_link = $('<p style="text-align:center;background:#ddd"><a href="javascript:void(0)" style="line-height:3;font-size:80%:">もっと表示する</a></p>');
-                    $read_more_link.on('click', {
-                        archive_num: archive_num
-                    }, function(e) {
-                        $(e.target).hide();
-                        $('#entries-archive-' + e.data.archive_num).fadeIn("slow");
-                    });
-                    var $before_archive = $('#entries-archive-' + (archive_num - 1));
-                    $before_archive.append($read_more_link);
-
-                    $entries_archive = $('<div id="entries-archive-' + archive_num + '"></div>');
-                    $entries_archive.hide();
-                    $entries_archive.insertAfter($before_archive);
-                    page_index = 0;
-                    archive_num += 1;
-                }
-                $(sections[i]).appendTo($entries_archive);
-                page_index += 1;
-            }
-            $entries_archive.hide();
-
-            var archive_entries = $('.archive-entry');
-
-            /* 記事一覧の並列表示用設定 */
-            // ここにデフォルトの画像を設定
-            var default_image = "http://cdn-ak.f.st-hatena.com/images/fotolife/W/WorldWorldWorld/20170320/20170320192021.jpg?1490005253";
-            for (var i = 0; i < archive_entries.length; i++) {
-                var entry_thumb = $(archive_entries[i]).find('.entry-thumb');
-                if (entry_thumb.length == 0) {
-                    var link_url = $(archive_entries[i]).find('.entry-title-link').attr('href').val;
-                    var $default_thumb = $('<a href="' + link_url + '" class="entry-thumb-link"><div class="entry-thumb" style="background-image: url(' + "'" + default_image + "'" + ')"></div></a>');
-                    $default_thumb.insertAfter($(archive_entries[i]).find('.categories'));
-                }
+document.addEventListener('DOMContentLoaded', function(){
+$(function() {
+$(window).bind("load", function(){
+    /* 記事一覧の並列表示用設定 */
+    // ここにデフォルトの画像を設定
+    var default_image = "http://cdn-ak.f.st-hatena.com/images/fotolife/W/WorldWorldWorld/20170618/20170618162603.png?1497770808";
+    $(".archive-entry").each(function() {
+        var entry_thumb = $(this).find('.entry-thumb');
+        if (entry_thumb.length == 0) {
+            var link_url = $(this).find('.entry-title-link').attr('href');
+            var $default_thumb = $('<a href="' + link_url + '" class="entry-thumb-link" style="background-image: url(' + "'" + default_image + "'" + ')"></a>');
+            $(this).append($default_thumb);
+        } else {
+        var $thumb_link = $(this).find('.entry-thumb-link');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', $thumb_link.attr('href'), true);
+        xhr.onload = function(e) {
+            if (e.target.status <= 200) {
+                var d_ = e.target.response;
+                var eye_catch = $('meta[property="og:image"]', d_)[0].content;
+                $thumb_link.css('backgroundImage','url(' + eye_catch + ')');
             }
         }
+        xhr.responseType = 'document';
+        xhr.send(null);
+        }
     });
+});
+});
+});
 </script>
 
 <!-- ptengine -->
@@ -66,20 +39,21 @@
     _pt_sp_2.push('setAccount,2e23c2ec');
     var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     (function() {
-        var atag = document.createElement('script');
-        atag.type = 'text/javascript';
-        atag.async = true;
+        var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
         atag.src = _protocol + 'js.ptengine.jp/pta.js';
-        var stag = document.createElement('script');
-        stag.type = 'text/javascript';
-        stag.async = true;
+        var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
         stag.src = _protocol + 'js.ptengine.jp/pts.js';
         var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(atag, s);
-        s.parentNode.insertBefore(stag, s);
+        s.parentNode.insertBefore(atag, s); s.parentNode.insertBefore(stag, s);
     })();
 </script>
 
-<!-- カテゴリアーカイブ -->
 <script src="http://hatena.wackwack.net/v1.1/js/breadcrumb.min.js"></script>
 <script src="http://hatena.wackwack.net/v1.1/js/category_archive.min.js"></script>
+
+<!-- code-prettify -->
+<script src="https://quotto.github.io/blog-custom/code-prettify/prettify.js"></script>
+<script src="https://quotto.github.io/blog-custom/code-prettify/lang-css.js"></script>
+<script type="text/javascript">
+    PR.prettyPrint();
+</script>

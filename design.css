@@ -1,17 +1,11 @@
 /* <system section="theme" selected="6653812171397613909"> */
-
 @import "http://hatenablog.com/theme/6653812171397613909.css";
-
 /* </system> */
-
 
 /* <system section="background" selected="default"> */
-
-
 /* default */
-
-
 /* </system> */
+
 
 large {
     font-size: 150%;
@@ -125,34 +119,51 @@ strong {
 }
 
 
+/* パンくずリストの背景を白くする
+#top-box {
+    background-color: #fff;
+    padding-left: 500%;
+    padding-right: 500%;
+    margin-left: -500%;
+    margin-right: -500%;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 10px;
+}
+#top-box .breadcrumb {
+border: 1px solid #dddddd;
+padding: 10px;
+margin: 0;
+}*/
+
+
 /* 囲み枠 */
 
 .design-box {
     border: 4px solid #E63946;
     border-radius: 10px;
-    margin: 2em 0;
-    padding: 2em 0;
+    margin: 10px 0;
+    padding: 1rem 1rem 0.5rem 1rem;
     position: relative;
-    font-weight: bold;
 }
 
 .design-title {
     color: #E63946;
     position: absolute;
     background-color: #fff;
-    top: -25px;
+    top: -1rem;
     left: 20px;
-    padding: 0.5em;
+    padding: 0 5px;
     font-weight: bold;
-    font-size: 120%;
+}
+
+.design-title::before {
+    font-family: "blogicon";
+    content: "\f029"
 }
 
 .design-box ul {
     margin: 0;
-}
-
-#main {
-    padding: 0 0;
 }
 
 
@@ -162,6 +173,20 @@ strong {
     text-align: center;
 }
 
+.archive-entries .entry-thumb-link {
+  display: block;
+  width: 100%;
+  height: 200px;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 10px;
+  order: 1;
+}
+
+.page-archive .entry-thumb {
+display: none;
+}
+
 .page-archive .archive-entry-header .date {
     font-size: 80%;
     position: absolute;
@@ -169,21 +194,23 @@ strong {
 }
 
 .page-archive .archive-entry-header .entry-title {
-    font-size: calc(85% + 0.25vw);
+    font-size: calc(1rem + 0.25vw);
     margin: 0;
     padding: 0;
     border: none;
     text-align: left;
+    height: calc(4.5 * (1rem + 0.25vw));
+    overflow: hidden;
 }
 
-.page-archive .archive-entries .archive-entry {
+.page-archive .archive-entry {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     margin-top: 24px;
     margin-bottom: 35px;
     margin-left: 5px;
     margin-right: 5px;
-    padding: 0 5px;
     vertical-align: top;
     text-align: left;
     background-color: #fff;
@@ -193,8 +220,9 @@ strong {
     width: 45%;
 }
 
-.page-archive .archive-entries .archive-entry .archive-entries .archive-entry-body {
+.page-archive .archive-entry-body {
     margin-bottom: 10px;
+    order: 2;
 }
 
 .page-archive .archive-entries .entry-description {
@@ -205,11 +233,11 @@ strong {
 
 .page-archive .archive-entry-header {
     margin-bottom: 10px;
+    order: 0;
 }
 
 .page-archive .archive-entry .categories {
-    position: absolute;
-    top: calc(100% - 1rem);
+    order: 3;
     margin: 0;
 }
 
@@ -217,14 +245,27 @@ strong {
     display: none;
 }
 
+
+@media (max-width: 600px) {
+    .page-archive .archive-entry {
+        display: flex;
+        width: 100%;
+    }
+
+    .page-archive .archive-entry-header .entry-title {
+        height: auto;
+    }
+}
+
+/* これは記事並列表示のオプション。ホバー時に選択記事の色を変える */
 @media (min-width: 600px) {
-    .page-archive .archive-entries .archive-entry:hover {
+    .page-archive .archive-entry:hover {
         background-color: #f0f0f0;
         cursor: pointer;
         -webkit-transition: 500ms;
         transition: 500ms;
     }
-    .page-archive .archive-entries .archive-entry:before {
+    .page-archive .archive-entry:before {
         content: ' ';
         height: 8px;
         width: 0;
@@ -235,91 +276,15 @@ strong {
         -webkit-transition: 500ms;
         transition: 500ms;
     }
-    .page-archive .archive-entries .archive-entry:hover:before {
+    .page-archive .archive-entry:hover:before {
         width: 100%;
     }
-}
 
-@media (max-width: 600px) {
-    #main {
-        padding: 0 10px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    .page-archive .archive-entries .archive-entry {
-        display: -webkit-inline-box;
-        display: -moz-inline-box;
-        display: -ms-inline-box;
-        display: -webkit-inline-flex;
-        display: inline-flex;
-        -webkit-box-direction: normal;
-        -webkit-box-orient: vertical;
-        -moz-box-direction: normal;
-        -moz-box-orient: vertical;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-        padding: 0 0;
-        -webkit-box-shadow: 0px 4px 6px 0px #d6d6d6;
-        box-shadow: 0px 4px 6px 0px #d6d6d6;
-        border: none;
-    }
-    .page-archive .archive-entries .archive-entry-header {
-        -webkit-box-ordinal-group: 1;
-        -moz-box-ordinal-group: 1;
-        -ms-flex-order: 1;
-        -webkit-order: 1;
-        order: 1;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-direction: inherit;
-        -moz-box-direction: inherit;
-        -webkit-flex-direction: inherit;
-        flex-direction: inherit;
-    }
-    .page-archive .archive-entry-header .date {
-        -webkit-box-ordinal-group: 2;
-        -moz-box-ordinal-group: 2;
-        -ms-flex-order: 2;
-        -webkit-order: 2;
-        order: 2;
-        position: static;
-        padding: 4px 0;
-    }
-    .page-archive .archive-entry-header .entry-title {
-        -webkit-box-ordinal-group: 1;
-        -moz-box-ordinal-group: 1;
-        -ms-flex-order: 1;
-        -webkit-order: 1;
-        order: 1;
-        font-size: calc(80% + 0.15vw);
-        height: calc((3rem * 0.8 + 0.15vw) * 1.5);
-        overflow: hidden;
-    }
-    .page-archive .entry-thumb {
-        margin: 0;
-        float: none;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-    }
-    .page-archive .archive-entries .archive-entry .archive-entry-body {
-        clear: both;
-        display: none;
-    }
-    .page-archive .archive-entries .archive-entry .categories {
-        -webkit-box-ordinal-group: 2;
-        -moz-box-ordinal-group: 2;
-        -ms-flex-order: 2;
-        -webkit-order: 2;
-        order: 2;
-        position: static;
-        font-size: calc(85% + 0.25vw);
+    /* フォーカス時にカテゴリの文字色を変える */
+    .page-archive .categories a:hover{
+       color: #E63946;
     }
 }
-
 
 /* これはテーマに合わせて設定 */
 
@@ -329,4 +294,52 @@ strong {
 
 .archive-heading {
     text-align: center;
+}
+
+/*
+code-prettifyのカスタマイズ
+*/
+ol.linenums {
+list-style: outside;
+}
+
+/*
+    記事一覧のアーカイブ化用
+*/
+
+.more-archive-link {
+    text-align: center;
+    background: none;
+}
+
+.more-archive-link a {
+    font-size: 80%;
+}
+
+.pager-prev a {
+    margin-left: 0
+}
+
+.pager-next a {
+    margin-right: 0;
+}
+
+@media (max-width: 767px) {
+    .page-archive .pager-prev a {
+        float: left;
+        left: 0;
+    }
+    .page-archive .pager-prev a:after {
+        left: 0;
+    }
+    .page-archive .pager-next a {
+        float: right;
+        right: 0;
+    }
+    .page-archive .pager-next a:after {
+        right: 0;
+    }
+    .page-archive #box2 {
+        clear: both;
+    }
 }
