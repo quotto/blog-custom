@@ -118,25 +118,6 @@ strong {
     vertical-align: middle;
 }
 
-
-/* パンくずリストの背景を白くする
-#top-box {
-    background-color: #fff;
-    padding-left: 500%;
-    padding-right: 500%;
-    margin-left: -500%;
-    margin-right: -500%;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-top: 10px;
-}
-#top-box .breadcrumb {
-border: 1px solid #dddddd;
-padding: 10px;
-margin: 0;
-}*/
-
-
 /* 囲み枠 */
 
 .design-box {
