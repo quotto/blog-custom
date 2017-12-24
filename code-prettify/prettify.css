@@ -33,7 +33,7 @@ pre.prettyprint {
 	width: 100%;
 	margin: 1em auto;
 	padding: 1em;
-	white-space: normal;
+	white-space: pre;
 }
 
 pre.prettyprinted {
