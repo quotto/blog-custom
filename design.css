@@ -118,6 +118,25 @@ strong {
     vertical-align: middle;
 }
 
+
+/* パンくずリストの背景を白くする
+#top-box {
+    background-color: #fff;
+    padding-left: 500%;
+    padding-right: 500%;
+    margin-left: -500%;
+    margin-right: -500%;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 10px;
+}
+#top-box .breadcrumb {
+border: 1px solid #dddddd;
+padding: 10px;
+margin: 0;
+}*/
+
+
 /* 囲み枠 */
 
 .design-box {
@@ -231,6 +250,8 @@ display: none;
     .page-archive .archive-entry {
         display: flex;
         width: 100%;
+        margin-right:0;
+        margin-left:0;
     }
 
     .page-archive .archive-entry-header .entry-title {
@@ -277,11 +298,30 @@ display: none;
     text-align: center;
 }
 
+@media (max-width: 767px){
+#main {
+    padding:0 5px;
+}
+.entry-content {
+    font-size: 13px;
+}
+.entry-content h2 {
+   margin-left: 0;
+   margin-right: 0;
+   padding: 8px 32px 8px 16px;
+}
+}
+
+
 /*
 code-prettifyのカスタマイズ
 */
 ol.linenums {
 list-style: outside;
+}
+
+pre.prettyprint {
+font-size: 80%
 }
 
 /*
@@ -323,4 +363,80 @@ list-style: outside;
     .page-archive #box2 {
         clear: both;
     }
+}
+
+/*
+  星評価
+*/
+@charset "UTF-8";
+.rate {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 16px;
+  font-size: 16px;
+  vertical-align:middle;
+  letter-spacing: normal;
+}
+.rate:before, .rate:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+}
+.rate:before {
+  color: #ddd;
+}
+.rate:after {
+  color: #ffa500;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rate0:after {
+  width: 0;
+}
+
+.rate1:after {
+  width: 16px;
+}
+
+.rate1-5:after {
+  width: 24px;
+}
+
+.rate2:after {
+  width: 32px;
+}
+
+.rate2-5:after {
+  width: 40px;
+}
+
+.rate3:after {
+  width: 48px;
+}
+
+.rate3-5:after {
+  width: 56px;
+}
+
+.rate4:after {
+  width: 64px;
+}
+
+.rate4-5:after {
+  width: 72px;
+}
+
+.rate5:after {
+  width: 80px;
+}
+
+.wrap {
+  width: 80px;
+  margin: 0 auto;
 }
