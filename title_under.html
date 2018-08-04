@@ -1,0 +1,24 @@
+<link type="text/css" rel="stylesheet" href="http://hatena.wackwack.net/v1.1/css/fulldisplay.min.css"/>
+<link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tranquil-heart.min.css"/>
+
+<script>
+var adsenseCode = (function(){/*
+<p class="adsense-title">スポンサーリンク</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scrip>
+<!-- タイトル下 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+     data-ad-slot="xxxxxxxxxxxx"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<scrip>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</scrip>
+*/}).toString().match(/\/\*([^]*)\*\//)[1].replace(/scrip>/g, 'script>');
+addEventListener("DOMContentLoaded", function() {
+  $insentense = $('<div class="insentense-adsense"></div>');
+  $('#top-box').after($insentense);
+  $insentense.html(adsenseCode);
+},false);
+</script>

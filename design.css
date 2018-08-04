@@ -1,5 +1,6 @@
 /* <system section="theme" selected="6653812171397613909"> */
-@import "http://hatenablog.com/theme/6653812171397613909.css";
+/* @import "https://hatenablog.com/theme/6653812171397613909.css";*/
+@import "https://blog.hatena.ne.jp/-/theme/6653812171397613909.css"
 /* </system> */
 
 /* <system section="background" selected="default"> */
@@ -439,4 +440,23 @@ font-size: 80%
 .wrap {
   width: 80px;
   margin: 0 auto;
+}
+
+/** Googleフォトの画像サイズ固定 **/
+img.magnifiable {
+  width: 800px;
+}
+
+/** スマートフォンの時はサイドバーを表示しない **/
+@media (max-width: 767px) {
+  #box2 {
+   display: none;
+  }
+}
+
+/**
+記事内広告のヘッダ
+**/
+.insentense-adsense .adsense-title {
+  font-size: 50%;
 }

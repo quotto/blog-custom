@@ -1,0 +1,65 @@
+<!--SNSシェアボタン-->
+<div class="share-buttons" style="text-align:center">
+<div class="inner">
+<!--はてなブックマーク-->
+<a href="http://b.hatena.ne.jp/entry/{URLEncodedPermalink}" class="hatena-bookmark-button" target="_blank" data-hatena-bookmark-title="{Title}" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加"><i class="blogicon-bookmark lg"></i> <div class="share-count-box"><span class="hatena-bookmark-count share-text"><i class="fa fa-spinner fa-spin"></i></span></div></a>
+<!--Facebook-->
+<a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" class="facebook-button" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" title="Facebookでシェア"><i class="blogicon-facebook lg"></i> <div class="share-count-box"><span class="facebook-count share-text"><i class="fa fa-spinner fa-spin"></i></span></div></a>
+<!--Twitter-->
+<a href="http://twitter.com/intent/tweet?text={Title} {URLEncodedPermalink}" class="twitter-button" onclick="window.open(this.href, 'TWwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="blogicon-twitter lg"></i></a>
+<!--Google+-->
+<a href="https://plus.google.com/share?url={URLEncodedPermalink}" onclick="window.open(this.href, 'Gwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" class="googleplus-button"><i class="fa fa-google-plus"></i></a>
+<!--Pocket-->
+<a href="http://getpocket.com/edit?url={URLEncodedPermalink}" class="pocket-button" target="_blank"><i class="fa fa-get-pocket"></i></a>
+</div>
+</div>
+
+<!--JQueryを使用-->
+<script src="https://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!--シェア数の取得-->
+<script>
+//はてなブックマークのシェア数
+function getHatenaBookmarkCount(entryUrl, selcter) {
+  entryUrl = 'https://b.hatena.ne.jp/entry.count?url=' + encodeURIComponent(entryUrl)
+  $.ajax({
+    url:entryUrl,
+    dataType:'jsonp',
+  }).then(
+    function(result){ $(selcter).text(result || 0); },
+    function(){ $(selcter).text('0'); }
+  );
+}
+//Facebookのシェア数
+function getFacebookCount(entryUrl, selcter) {
+  entryUrl = 'https://graph.facebook.com/' + encodeURIComponent(entryUrl)
+  $.ajax({
+    url:entryUrl,
+    dataType:'jsonp'
+  }).then(
+    function(result){
+        if(result.share && result.share.share_count) {
+            $(selcter).text(result.share.share_count);
+        } else {
+            $(selcter).text('0');
+        }
+    },
+    function(){ $(selcter).text('0'); }
+  );
+}
+$(function(){
+  getHatenaBookmarkCount('{Permalink}', '.hatena-bookmark-count');
+  getFacebookCount('{Permalink}', '.facebook-count');
+});
+</script>
+
+
+<!-- Google Adsense 記事下関連コンテンツ -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="xxxxxxxxxxxxxx"
+     data-ad-slot="xxxxxxxxx"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

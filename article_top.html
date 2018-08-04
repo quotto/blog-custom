@@ -1,0 +1,31 @@
+<script>
+var adsenseCode = (function () {/*
+
+<p class="adsense-title">スポンサーリンク</p>
+<!-- 自分のアドセンスコードの2箇所の「/script」を「/scrip」に修正してここにコピペ -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scrip>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-xxxxxxxxxxxxxxxxxx"
+     data-ad-slot="xxxxxxxxxxxx"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</scrip>
+<p> </p>
+
+*/}).toString().match(/\/\*([^]*)\*\//)[1].replace(/scrip>/g, 'script>');
+
+addEventListener("DOMContentLoaded", function() {
+    var $target = $('.entry-content h1');
+    if($target.size === 0) {
+      // h1タグがない場合はpタグをターゲットにする
+      $target = $('.entry-content p');
+    }
+    $insentense = $('<div class="insentense-adsense"></div>');
+    $target.eq(Math.floor($target.size() / 2)).before($insentense);
+
+    $insentense.html(adsenseCode);
+}, false);
+</script>
